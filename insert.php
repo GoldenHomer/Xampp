@@ -1,3 +1,5 @@
+<html>
+<body>
 <?php
   $username = "username";
   $password = 'password';
@@ -10,25 +12,52 @@
   $result = mysql_query($query);
   $num = mysql_numrows($result);
   mysql_close();
-  echo "<b>
-  <center>DB Output</center>
-  </b>
-  <br>
-  <br>";
-    $i = 0;
-    while ($i < $num) {
-      $field-name = mysql_result($result, $i, "field-name");
-      $field2-name=mysql_result($result,$i,"field2-name");
-      $field3-name=mysql_result($result,$i,"field3-name");
-      $field4-name=mysql_result($result,$i,"field4-name");
-      $field5-name=mysql_result($result,$i,"field5-name");
-      echo "<b>
-      $field1-name $field2-name2</b>
-      <br>
-      $field3-name<br>
-      $field4-name<br>
-      $field5-name<hr>
-      <br>";
-      $i++;
-    }
 ?>
+  <table border="0" cellspacing="2" cellpadding="2">
+<tr>
+<td>
+<font face="Arial, Helvetica, sans-serif">Value1</font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif">Value2</font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif">Value3</font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif">Value4</font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif">Value5</font>
+</td>
+</tr>
+
+<?php
+$i=0;
+while ($i < $num) {
+  $f1=mysql_result($result,$i,"field1");
+  $f2=mysql_result($result,$i,"field2");
+  $f3=mysql_result($result,$i,"field3");
+  $f4=mysql_result($result,$i,"field4");
+  $f5=mysql_result($result,$i,"field5");
+?>
+
+<tr>
+<td>
+<font face="Arial, Helvetica, sans-serif"><?php echo $f1; ?></font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif"><?php echo $f2; ?></font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif"><?php echo $f3; ?></font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif"><?php echo $f4; ?></font>
+</td>
+<td>
+<font face="Arial, Helvetica, sans-serif"><?php echo $f5; ?></font>
+</td>
+</tr>
+</body>
+</html>
