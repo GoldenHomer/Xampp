@@ -10,15 +10,13 @@
 
   $query = "UPDATE 'users' SET 'email'='ian@hotmail.com' WHERE 'name'='Ian' LIMIT 1";
 
-  mysqli_query($link, $query);
-
   $query = "SELECT * FROM users";
 
   if ($result=mysqli_query($link, $query)) {
 
-  	$row = mysqli_fetch_array($result);
-
-  	print_r($row);
+  	while ($row = mysqli_fetch_array($result)) {
+  	  print_r($row);
+  	}
   }
   else {
   	echo "It failed.";
